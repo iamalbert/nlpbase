@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+  
+script:
+  - docker build -t sinitic/nlpbase:$TRAVIS_COMMIT .
+  
+after_success:
+  - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
+  - docker push sinitic/nlpbase:$TRAVIS_COMMIT
