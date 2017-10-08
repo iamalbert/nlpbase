@@ -4,8 +4,9 @@ services:
   - docker
   
 script:
-  - docker build -t sinitic/nlpbase:$TRAVIS_COMMIT .
+  - docker build -t sinitic/nlpbase:$TRAVIS_COMMIT -t sinitic/nlpbase:latest .
   
 after_success:
   - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
   - docker push sinitic/nlpbase:$TRAVIS_COMMIT
+  - docker push sinitic/nlpbase:latest
