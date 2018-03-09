@@ -6,7 +6,7 @@ RUN apt-get -qq update \
     && apt-get install -y --no-install-recommends \
         gcc g++ build-essential \
         libsqlite3-dev \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
     && cat /tmp/requirements.txt | xargs -n1 -t pip install -U \
     && python -m nltk.downloader all \
     && python -m spacy download fr_core_news_md
