@@ -1,7 +1,7 @@
 FROM python:3.6-alpine
 
 COPY requirements.txt /tmp/requirements.txt
-
+RUN echo "http://dl-8.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 RUN apk update \
     && apk add gcc g++ make  gfortran \
        sqlite-dev postgresql-dev python3-dev \
