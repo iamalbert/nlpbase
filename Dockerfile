@@ -1,10 +1,10 @@
-FROM python:3.6-alpine
+FROM python:3.6-slim-stretch
 
 COPY requirements.txt /tmp/requirements.txt
-RUN echo "http://dl-8.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
-RUN apk update \
-    && apk add gcc g++ make  gfortran \
-       sqlite-dev postgresql-dev python3-dev \
-       openblas-dev openblas \
+RUN apt-get -qq update \
+    && apt-get install -y --no-install-recommends \
+        gcc g++ build-essential \
+        libsqlite3-dev \
+    && rm -rf /var/lib/apt/lists/* \
     && cat /tmp/requirements.txt | xargs -n1 -t pip install -U \
     && python -m nltk.downloader punkt wordnet averaged_perceptron_tagger
