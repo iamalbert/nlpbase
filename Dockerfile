@@ -8,4 +8,4 @@ RUN apt-get -qq update \
         libsqlite3-dev \
     && rm -rf /var/lib/apt/lists/* \
     && cat /tmp/requirements.txt | xargs -n1 -t pip install -U \
-    && python -m nltk.downloader all
+    && python -m nltk.downloader punkt wordnet averaged_perceptron_tagger
