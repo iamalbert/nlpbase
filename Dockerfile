@@ -6,5 +6,5 @@ RUN apt-get -qq update \
         gcc g++ build-essential \
         libsqlite3-dev \
     && rm -rf /var/lib/apt/lists/* \
-    && cat /tmp/requirements.txt | xargs -n1 -t pip install -U \
+    && cat /tmp/requirements.txt | xargs -n1 -t pip install --no-cache-dir -U \
     && python -m nltk.downloader punkt wordnet averaged_perceptron_tagger
