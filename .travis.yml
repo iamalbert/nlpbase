@@ -2,14 +2,10 @@ sudo: required
 
 services:
   - docker
-  
-before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y gcc g++ build-essential
+
 script:
-  - docker build -t sinitic/nlpbase:$TRAVIS_COMMIT -t sinitic/nlpbase:latest .
+  - docker build -t albertzhuang/docker-git-compose:$TRAVIS_COMMIT -t albertzhuang/docker-git-compose:latest .
   
 after_success:
   - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
-  - docker push sinitic/nlpbase:$TRAVIS_COMMIT
-  - docker push sinitic/nlpbase:latest
+  - docker push albertzhuang/docker-git-compose
