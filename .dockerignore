@@ -1,0 +1,8 @@
+Dockerfile
+LICENSE
+README.md
+requirements.txt
+.git/
+.gitignore
+.travis.yml
+*.swp
