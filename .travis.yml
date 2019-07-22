@@ -3,9 +3,14 @@ sudo: required
 services:
   - docker
 
+matrix:
+  include:
+    - env: IMAGE=docker-git-compose
+    - env: IMAGE=yapf
+
 script:
-  - docker build -t albertzhuang/docker-git-compose:$TRAVIS_COMMIT -t albertzhuang/docker-git-compose:latest .
+  - docker build -f ${IMAGE}.Dockerfile -t albertzhuang/${IMAGE}:$TRAVIS_COMMIT -t albertzhuang/${IMAGE}:latest .
   
 after_success:
   - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
-  - docker push albertzhuang/docker-git-compose
+  - docker push albertzhuang/${IMAGE}
