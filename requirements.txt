@@ -26,5 +26,5 @@ psycopg2==2.7.4
 pyfasttext==0.4.4
 google-auth
 SQLAlchemy==1.2.6
-PyYAML==3.12
+PyYAML==5.1
 
