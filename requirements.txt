@@ -3,7 +3,7 @@ nltk==3.2.5
 thulac==0.1.2
 numpy==1.14.1
 scipy==1.0.0
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 xgboost==0.6a2
 editdistance==0.4
 pandas==0.22.0
